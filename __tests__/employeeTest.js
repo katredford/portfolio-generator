@@ -1,7 +1,7 @@
 const { test, expect } = require("@jest/globals");
-const Employee = require("../lib/Employee");
+const Employee = require("../lib/Employees");
 
-test("checks if each employee has an id", () => {
+test("checks if all employees have an id", () => {
 	const employeeId = 1;
 	const employee = new Employee(employeeId);
 	expect(employee.id).toEqual(expect.any(Number));
@@ -25,5 +25,5 @@ test("checks if each employee has an email", () => {
 test("checks employee role", () => {
 	const employeeRole = "Employee";
 	const employee = new Employee(1, "trandleban", "bramble@email.com");
-	expect(employee.getRole()).toBe(mployeeRole);
+	expect(employee.getRole()).toBe(employeeRole);
 });
