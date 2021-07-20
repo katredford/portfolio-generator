@@ -5,11 +5,11 @@ const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
-const createPage = require("template");
+// const createPage = require("template");
 
 let group = [];
 
-const promptUser = () => {
+const userImput = () => {
 	inquirer
 		.prompt([
 			{
@@ -125,8 +125,27 @@ const engineerPrompt = () => {
 		});
 };
 
+const employeeType = () => {
+	inquirer
+		.prompt([
+			{
+				type: "list",
+				name: "chooseEmployeeType",
+				message: "Would you like to add an Engineer or Inter?",
+				choices: ["Engineer", "Intern"],
+			},
+		])
+		.then((employeeData) => {
+			if (employeeData.chooseEmployeeType === "Intern") {
+				internPrompt();
+			} else {
+				engineerPrompt();
+			}
+		});
+};
+
 const makePage = () => {
-	const pageHTML = generatePage(group);
+	const pageHTML = createPage(group);
 
 	console.log("HTML Data", pageHTML);
 	fs.writeFile("./index.html", pageHTML, (err) => {
@@ -134,4 +153,4 @@ const makePage = () => {
 	});
 };
 
-promptUser();
+userImput();
