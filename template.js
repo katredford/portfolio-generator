@@ -7,16 +7,35 @@ const generateHTML = (group) => {
 		if (group[i].getRole() === "Intern") {
 			var card = `
         <div>
-        <h1> Name! ${group[i].name}</h1>
-        <h3> email! ${group[i].email}</h1>
-        <h3> school ${group[i].school}</h1>
+        <h1>  ${group[i].name}</h1>
+        <h3> email: ${group[i].email}</h1>
+        <h3> school: ${group[i].school}</h1>
         </div>
         `;
 
 			cards.push(card);
-        } else if() {
-            
-        }
+		} else if (group[i].getRole() === "Engineer") {
+			var card = `
+        <div>
+        <h1> ${group[i].name}</h1>
+        <h3> email: ${group[i].email}</h3>
+        <h3> github: ${group[i].github}</h3>
+      
+        </div>
+        `;
+
+			cards.push(card);
+		} else if (group[i].getRole() === "Manager") {
+			var card = `
+        <div>
+        <h1> ${group[i].name}</h1>
+        <h3> email: ${group[i].email}</h3>
+        <h3> office number: ${group[i].officeNumber}</h3>
+        </div>
+        `;
+
+			cards.push(card);
+		}
 	}
 
 	const fakeHtml = `<!DOCTYPE html>
