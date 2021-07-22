@@ -1,4 +1,25 @@
-<!DOCTYPE html>
+const generateHTML = (group) => {
+	console.log("teams!!!!!!", group);
+
+	var cards = [];
+
+	for (let i = 0; i < group.length; i++) {
+		if (group[i].getRole() === "Intern") {
+			var card = `
+        <div>
+        <h1> Name! ${group[i].name}</h1>
+        <h3> email! ${group[i].email}</h1>
+        <h3> school ${group[i].school}</h1>
+        </div>
+        `;
+
+			cards.push(card);
+        } else if() {
+            
+        }
+	}
+
+	const fakeHtml = `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,6 +28,13 @@
     <title>Document</title>
 </head>
 <body>
+
+${cards}
     
 </body>
-</html>
+</html>`;
+
+	return fakeHtml;
+};
+
+module.exports = generateHTML;
